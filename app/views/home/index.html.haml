@@ -1,6 +1,6 @@
--content_for(:title) { t("home.title") }
+-content_for(:title) { t("title") }
 
-%h1= t("home.title")
+%h1= t("title")
 
 %p= t("home.subtitle")
 
@@ -11,3 +11,13 @@
   %strong.show-on-desktops Desktop version.
   %strong.show-on-tablets Tablet device version.
   %strong.show-on-phones Smartphone version.
+  
+
+- unless Rails.env == "production"
+  %app_env
+    = "Env:  #{Rails.env}"
+    %br
+    = "Ruby: #{RUBY_VERSION}"
+    %br
+    = "Rails: #{Rails::VERSION::STRING}"
+    
