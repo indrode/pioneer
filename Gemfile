@@ -5,9 +5,11 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
+gem 'mysql2'
 gem 'json'
+gem 'jquery-rails'
+gem 'haml'
+gem 'haml-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,10 +19,17 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
-
 group :development, :test do
   gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
+group :development do
+  gem 'growl'
+  gem 'capistrano'
+  gem 'capistrano-ext'
 end
 
 # Use unicorn as the web server
