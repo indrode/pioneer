@@ -35,7 +35,7 @@ end
 
 namespace :deploy do
   task :bundle_gems do
-    run "cd #{deploy_to}/current && RAILS_ENV=#{rails_env} bundle install --path vendor/gems"
+    #run "cd #{deploy_to}/current && RAILS_ENV=#{rails_env} bundle install --deployment"
   end
   
   task :start do ; end
