@@ -1,22 +1,50 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require 'capistrano/ext/multistage'
+require 'bundler/capistrano'
+require "rvm/capistrano"
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :application, "pioneer"
+set :default_stage, "staging"
+set :stages, %w(production staging testing)
+set :scm, :git
+set :repository,  "git@github.com:indrode/pioneer.git"
+set :user, "francis"
+set :use_sudo, false
+set :port, 52520
+set :deploy_via, :remote_cache
+set :template_dir, "config/deploy"
+set :rvm_ruby_string, '1.9.3@rails3'
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+namespace :db do
+  task :db_config, :except => { :no_release => true }, :role => :app do
+    run "cp -f ~/#{application}/shared/database.yml #{release_path}/config/database.yml"
+  end
+end
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+after "deploy:finalize_update", "db:db_config"
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :assets do
+  task :precompile, :roles => :web do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+  end
+
+  task :cleanup, :roles => :web do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake assets:clean"
+  end
+end
+
+namespace :deploy do
+  task :bundle_gems do
+    run "cd #{deploy_to}/current && RAILS_ENV=#{rails_env} bundle install --path vendor/gems"
+  end
+  
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "cd #{deploy_to}/current && RAILS_ENV=#{rails_env} bundle exec thin restart  -s#{num_instances} -p #{thin_port}"
+  end
+end
+
+after :deploy, "deploy:bundle_gems"
+after "deploy:bundle_gems", "deploy:restart"
+after :deploy, "assets:precompile"
