@@ -5,7 +5,7 @@ require "rvm/capistrano"
 
 set :application, "pioneer"
 set :default_stage, "staging"
-set :stages, %w(production staging testing)
+set :stages, %w(production staging)
 set :scm, :git
 set :repository,  "git@github.com:indrode/pioneer.git"
 set :user, "francis"
