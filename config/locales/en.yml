@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  
+  home:
+    title: Pioneer Homepage
+    subtitle: This is the homepage subtitle.

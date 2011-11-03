@@ -1,2 +1,13 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+-content_for(:title) { t("home.title") }
+
+%h1= t("home.title")
+
+%p= t("home.subtitle")
+
+%p
+  %a.nice.small.radius.white.button{:href => "#"} Button Text
+
+%p
+  %strong.show-on-desktops Desktop version.
+  %strong.show-on-tablets Tablet device version.
+  %strong.show-on-phones Smartphone version.

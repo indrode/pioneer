@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'mysql2'
 gem 'json'
+gem 'yajl-ruby'
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
