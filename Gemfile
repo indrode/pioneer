@@ -10,20 +10,22 @@ gem 'json'
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
+gem 'redis'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'sass-rails', "~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
+  gem 'zurb-foundation'                   # https://github.com/zurb/foundation-rails
   gem 'uglifier'
 end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do
