@@ -25,12 +25,14 @@ group :assets do
   gem 'uglifier'
 end
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'rb-fsevent'
+  gem 'spork', "> 0.9.0.rc"
 end
 
 group :development do
