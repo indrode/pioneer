@@ -41,6 +41,9 @@ group :development do
   gem 'capistrano-ext'
 end
 
+# rrrawr!
+gem 'puma'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
