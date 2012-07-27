@@ -31,7 +31,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'rb-fsevent'
+  gem 'rb-fsevent', ">= 0.9.1"
   gem 'spork', "> 0.9.0.rc"
 end
 
