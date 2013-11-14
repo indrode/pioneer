@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'redis'
 
 group :development, :test do
-  gem 'rspec'
   gem 'rspec-rails', '~> 2.0'
 end
 
