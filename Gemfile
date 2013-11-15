@@ -25,6 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'redis'
+gem 'haml'
 
 group :development do
   gem 'better_errors'
