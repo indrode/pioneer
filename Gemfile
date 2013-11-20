@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'redis'
 gem 'haml'
 
-gem 'kotae', :git => 'spacecake-git:/home/git/kotae.git', :ref =>'pioneer'
+gem 'kotae', git: 'spacecake-git:/home/git/kotae.git', ref: 'pioneer'
 
 group :development do
   gem 'better_errors'
@@ -39,7 +39,6 @@ group :development do
   gem 'brakeman'
   gem 'awesome_print'
 end
-
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
