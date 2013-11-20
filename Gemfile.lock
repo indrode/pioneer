@@ -1,3 +1,11 @@
+GIT
+  remote: spacecake-git:/home/git/kotae.git
+  revision: 51613e6cd23a0a03ed37fd6ef9f4b32a52f34367
+  ref: pioneer
+  specs:
+    kotae (0.1.0)
+      dotenv (~> 0.8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,6 +73,7 @@ GEM
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.4)
+    dotenv (0.8.0)
     erubis (2.7.0)
     execjs (2.0.2)
     fastercsv (1.5.5)
@@ -182,6 +191,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  kotae!
   pry
   quiet_assets
   rack-mini-profiler

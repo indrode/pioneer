@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'redis'
 gem 'haml'
 
+gem 'kotae', :git => 'spacecake-git:/home/git/kotae.git', :ref =>'pioneer'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
