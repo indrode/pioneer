@@ -1,9 +1,9 @@
 GIT
   remote: spacecake-git:/home/git/kotae.git
-  revision: 51613e6cd23a0a03ed37fd6ef9f4b32a52f34367
+  revision: 993ca61d4de26868152a40d5bbf580f785417590
   ref: pioneer
   specs:
-    kotae (0.1.0)
+    kotae (0.1.1)
       dotenv (~> 0.8.0)
 
 GEM
@@ -191,7 +191,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
-  kotae!
+  kotae (= 0.1.1)!
   pry
   quiet_assets
   rack-mini-profiler
