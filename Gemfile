@@ -38,6 +38,7 @@ group :development do
   gem 'rails-footnotes'
   gem 'brakeman'
   gem 'awesome_print'
+  gem 'rubocop'
 end
 
 group :development, :test do
